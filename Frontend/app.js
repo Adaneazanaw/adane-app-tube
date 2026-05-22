@@ -226,30 +226,8 @@ const state = {
   sliderInterval: null
 };
 
-// DOM Elements
-const elements = {
-  logo: document.getElementById('logoBranding'),
-  searchInput: document.getElementById('searchNewsInput'),
-  bookmarksToggle: document.getElementById('bookmarksToggleBtn'),
-  bookmarkCountBadge: document.getElementById('bookmarkCountBadge'),
-  openPublishModal: document.getElementById('openPublishModalBtn'),
-  sliderTrack: document.getElementById('sliderTrack'),
-  prevSlide: document.getElementById('prevSlideBtn'),
-  nextSlide: document.getElementById('nextSlideBtn'),
-  sliderDots: document.getElementById('sliderDots'),
-  categoryFilters: document.getElementById('categoryFilterNav'),
-  resultsCount: document.getElementById('resultsCountText'),
-  newsGrid: document.getElementById('newsGridContainer'),
-  bookmarksDrawer: document.getElementById('bookmarksDrawer'),
-  bookmarksDrawerBody: document.getElementById('bookmarksDrawerBody'),
-  closeBookmarksDrawer: document.getElementById('closeBookmarksDrawerBtn'),
-  articleReaderModal: document.getElementById('articleReaderModal'),
-  articleModalContent: document.getElementById('articleModalContent'),
-  closeArticleModal: document.getElementById('closeArticleModalBtn'),
-  publishNewsModal: document.getElementById('publishNewsModal'),
-  closePublishModal: document.getElementById('closePublishModalBtn'),
-  publishNewsForm: document.getElementById('publishNewsForm')
-};
+// DOM Elements (populated on DOMContentLoaded to avoid null refs)
+let elements = {};
 
 // Category styling map for tags
 const categoryStyleMap = {
@@ -263,6 +241,31 @@ const categoryStyleMap = {
 
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
+  // Populate DOM element references now that the document is ready
+  elements = {
+    logo: document.getElementById('logoBranding'),
+    searchInput: document.getElementById('searchNewsInput'),
+    bookmarksToggle: document.getElementById('bookmarksToggleBtn'),
+    bookmarkCountBadge: document.getElementById('bookmarkCountBadge'),
+    openPublishModal: document.getElementById('openPublishModalBtn'),
+    sliderTrack: document.getElementById('sliderTrack'),
+    prevSlide: document.getElementById('prevSlideBtn'),
+    nextSlide: document.getElementById('nextSlideBtn'),
+    sliderDots: document.getElementById('sliderDots'),
+    categoryFilters: document.getElementById('categoryFilterNav'),
+    resultsCount: document.getElementById('resultsCountText'),
+    newsGrid: document.getElementById('newsGridContainer'),
+    bookmarksDrawer: document.getElementById('bookmarksDrawer'),
+    bookmarksDrawerBody: document.getElementById('bookmarksDrawerBody'),
+    closeBookmarksDrawer: document.getElementById('closeBookmarksDrawerBtn'),
+    articleReaderModal: document.getElementById('articleReaderModal'),
+    articleModalContent: document.getElementById('articleModalContent'),
+    closeArticleModal: document.getElementById('closeArticleModalBtn'),
+    publishNewsModal: document.getElementById('publishNewsModal'),
+    closePublishModal: document.getElementById('closePublishModalBtn'),
+    publishNewsForm: document.getElementById('publishNewsForm')
+  };
+
   setupEventListeners();
   loadBookmarksBadge();
   initClientDatabase(); // Pre-load LocalStorage with fallback if empty
