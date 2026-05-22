@@ -1,0 +1,14 @@
+{
+  "name": "adane-app-tube",
+  "version": "1.0.0",
+  "description": "Premium Full-Stack Tech News Platform",
+  "main": "Backend/server.js",
+  "scripts": {
+    "start": "node Backend/server.js",
+    "dev": "nodemon Backend/server.js",
+    "install-all": "npm install && cd Backend && npm install"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

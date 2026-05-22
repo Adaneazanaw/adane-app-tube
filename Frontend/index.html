@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adane App Tube | Premium Tech News Platform</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover the latest in AI, Software Engineering, Gadgets, Space Exploration, and FinTech with Adane App Tube. Premium glassmorphic design and real-time tech insights.">
+  <meta name="keywords" content="tech news, glassmorphism, artificial intelligence, software engineering, space tech, gadgets, Adane App Tube">
+  <meta name="author" content="Adane App Tube">
+  
+  <!-- Favicon placeholder (can be generated later or blank) -->
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Ambient background blobs -->
+  <div class="ambient-bg">
+    <div class="ambient-blob ambient-blob-1"></div>
+    <div class="ambient-blob ambient-blob-2"></div>
+    <div class="ambient-blob ambient-blob-3"></div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header-glass">
+    <div class="container nav-container">
+      <a href="/" class="logo" id="logoBranding">
+        <div class="logo-icon">A</div>
+        Adane <span>App Tube</span>
+      </a>
+      
+      <div class="nav-actions">
+        <!-- Search bar inside Nav for widescreen -->
+        <div class="search-bar">
+          <input type="text" class="search-input" id="searchNewsInput" placeholder="Search tech articles...">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+        
+        <!-- Bookmarks Tray Toggle Button -->
+        <button class="btn-glass" id="bookmarksToggleBtn" title="View Bookmarks">
+          <i class="fa-solid fa-bookmark"></i>
+          <span>Saved</span>
+          <span id="bookmarkCountBadge" style="margin-left: 4px; padding: 2px 6px; border-radius: var(--radius-full); background: var(--color-primary); color: var(--bg-dark); font-size: 10px; font-weight: bold; display: none;">0</span>
+        </button>
+        
+        <!-- Add News Button -->
+        <button class="btn-glass btn-primary" id="openPublishModalBtn">
+          <i class="fa-solid fa-pen-nib"></i>
+          <span>Write News</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Slider Section -->
+    <section class="hero-section" id="heroSliderSection">
+      <div class="slider-container" id="heroSliderContainer">
+        <!-- Slider Track for slides -->
+        <div class="slider-track" id="sliderTrack">
+          <!-- Dynamically generated slides go here -->
+          <div class="slide active">
+            <div style="padding: 100px; text-align: center; width: 100%;">
+              <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 40px; color: var(--color-primary);"></i>
+              <p style="margin-top: 20px;">Synchronizing tech feeds...</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <div class="slider-controls">
+          <button class="slider-btn" id="prevSlideBtn" aria-label="Previous Slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn" id="nextSlideBtn" aria-label="Next Slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        
+        <!-- Slide Dots Indicators -->
+        <div class="slider-dots" id="sliderDots">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar Filters Section -->
+    <section class="toolbar-section">
+      <div class="toolbar-card">
+        <!-- Category Filter Pills -->
+        <nav class="filters-container" id="categoryFilterNav" aria-label="News Categories">
+          <button class="filter-pill active" data-category="All">All</button>
+          <button class="filter-pill" data-category="AI & Machine Learning">AI & ML</button>
+          <button class="filter-pill" data-category="Gadgets & Hardware">Gadgets</button>
+          <button class="filter-pill" data-category="Software Engineering">Software Eng</button>
+          <button class="filter-pill" data-category="Cybersecurity">Security</button>
+          <button class="filter-pill" data-category="Space Exploration">Space Tech</button>
+          <button class="filter-pill" data-category="FinTech">FinTech</button>
+        </nav>
+        
+        <div class="results-count-badge" id="resultsCountText" style="font-size: 13px; color: var(--text-muted);">
+          Showing all articles
+        </div>
+      </div>
+    </section>
+
+    <!-- News Grid Grid -->
+    <section class="news-grid-section">
+      <div class="news-grid" id="newsGridContainer">
+        <!-- Dynamically populated card modules -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer-glass">
+    <div class="container footer-content">
+      <div class="footer-credits">
+        &copy; 2026 <strong>Adane App Tube</strong>. Powered by <span>Vite & Express</span>
+      </div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Documentation</a>
+        <a href="#" class="footer-link">API Sandbox</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer for Saved/Bookmarked Articles -->
+  <div class="drawer" id="bookmarksDrawer">
+    <div class="drawer-header">
+      <h2 class="drawer-title">
+        <i class="fa-solid fa-bookmark drawer-title-icon"></i>
+        Bookmarks
+      </h2>
+      <button class="modal-close-btn" id="closeBookmarksDrawerBtn" style="position: static;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="drawer-body" id="bookmarksDrawerBody">
+      <!-- Bookmarked items dynamically rendered here -->
+      <div class="empty-state">
+        <i class="fa-regular fa-bookmark empty-state-icon"></i>
+        <p>No bookmarks saved yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Screen Article Modal Reader -->
+  <div class="modal-overlay" id="articleReaderModal">
+    <div class="modal-glass">
+      <button class="modal-close-btn" id="closeArticleModalBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <!-- Dynamically generated reader structure -->
+      <div id="articleModalContent">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Publish Modal Form -->
+  <div class="modal-overlay" id="publishNewsModal">
+    <div class="modal-glass" style="max-width: 600px;">
+      <button class="modal-close-btn" id="closePublishModalBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="article-modal-body">
+        <h2 class="form-title">Publish Tech News</h2>
+        <form id="publishNewsForm" onsubmit="event.preventDefault();">
+          
+          <div class="form-group">
+            <label class="form-label" for="newsTitleInput">Article Title *</label>
+            <input type="text" class="form-control" id="newsTitleInput" required placeholder="e.g. Helion Fusion reaches plasma stability">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="newsCategorySelect">Category *</label>
+            <select class="form-control" id="newsCategorySelect" required>
+              <option value="AI & Machine Learning">AI & Machine Learning</option>
+              <option value="Gadgets & Hardware">Gadgets & Hardware</option>
+              <option value="Software Engineering">Software Engineering</option>
+              <option value="Cybersecurity">Cybersecurity</option>
+              <option value="Space Exploration">Space Exploration</option>
+              <option value="FinTech">FinTech</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="newsSummaryInput">Brief Summary *</label>
+            <input type="text" class="form-control" id="newsSummaryInput" required placeholder="1-2 sentences summarizing the breakthrough">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="newsAuthorInput">Author Name</label>
+            <input type="text" class="form-control" id="newsAuthorInput" placeholder="Your Name and Title (e.g. John Doe, Systems Engineer)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newsImageInput">Cover Image URL</label>
+            <input type="url" class="form-control" id="newsImageInput" placeholder="https://images.unsplash.com/photo-...">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="newsContentInput">Detailed Article Content *</label>
+            <textarea class="form-control" id="newsContentInput" required placeholder="Write the full content of the article here. Use paragraphs by hitting Enter."></textarea>
+          </div>
+          
+          <button type="submit" class="btn-glass btn-primary" style="width: 100%; margin-top: 10px;" id="submitNewsBtn">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Publish Article</span>
+          </button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
